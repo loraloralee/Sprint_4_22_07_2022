@@ -42,8 +42,8 @@ public class CheckOrderTest {
     @Parameterized.Parameters
     public static Object[][] getDate () {
         return new Object[][] {
-                {"Лариса","Ли","город Ташкент","Сокольники","+7899999999","26.07.2022", "двое суток", "black", "нет"},
-                {"Володя","Кит","город Псков","Сокольники","+7888999999","26.07.2022", "двое суток", "black", "нет"}
+                {"Лариса","Ли","город Ташкент","Бульвар Рокосовского","+99899999999","27.07.2022", "двое суток", "black", "хочу бургер"},
+                {"Володя","Кит","город Псков","Черкизовская","+7688999999","27.07.2022", "двое суток", "black", "хочу колы]"}
         };
     }
 
@@ -70,11 +70,11 @@ public class CheckOrderTest {
         homePage.clickOrderSmallButton();
 
         OrderPage orderPage=new OrderPage(driver);
-        orderPage.fillOrderForm();
+        orderPage.fillOrderForm(name,surname,address,station,phone);
         orderPage.clickButtonNext();
 
         RentPage rentPage=new RentPage(driver);
-        rentPage.fillRentPage();
+        rentPage.fillRentPage(date,period,color,comment);
         rentPage.clickButtonOrder();
         rentPage.clickButtonOrderYes();
         String orderCompleted="Заказ оформлен";
@@ -88,11 +88,11 @@ public class CheckOrderTest {
         homePage.clickOrderBigButton();
 
         OrderPage orderPage=new OrderPage(driver);
-        orderPage.fillOrderForm();
+        orderPage.fillOrderForm(name,surname,address,station,phone);
         orderPage.clickButtonNext();
 
         RentPage rentPage=new RentPage(driver);
-        rentPage.fillRentPage();
+        rentPage.fillRentPage(date,period,color,comment);
         rentPage.clickButtonOrder();
         rentPage.clickButtonOrderYes();
         String orderCompleted="Заказ оформлен";

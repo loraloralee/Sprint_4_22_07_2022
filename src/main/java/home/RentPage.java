@@ -22,16 +22,12 @@ public class RentPage {
         this.driver = driver;
     }
 
-    Rent rent = new Rent("26.07.2022", "двое суток", "black", "нет");
-
-    public RentPage fillRentPage(){
-        fillDate(rent.getDate());
-        fillPeriod(rent.getPeriod());
-        fillColor(rent.getColor());
-        fillComment(rent.getComment());
-        return this;
+    public void fillRentPage(String date,String period,String color,String comment){
+        fillDate(date);
+        fillPeriod(period);
+        fillColor(color);
+        fillComment(comment);
     }
-    //Набор 1
     public void fillDate (String date){
         driver.findElement(inputDate).click();
         driver.findElement(chooseDate).click();
@@ -59,5 +55,6 @@ public class RentPage {
     }
 
 }
+
 
 

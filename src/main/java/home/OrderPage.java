@@ -18,15 +18,12 @@ public class OrderPage {
 
         this.driver = driver;
     }
-    Order order=new Order("Лариса","Ли","город Ташкент","Сокольники","+7899999999");
-
-    public OrderPage fillOrderForm(){
-        fillName(order.getName());
-        fillSurname(order.getSurname());
-        fillAddress(order.getAddress());
-        fillStation(order.getStation());
-        fillPhone(order.getPhone());
-        return this;
+    public void fillOrderForm(String name,String surname,String address, String station,String phone ){
+        fillName(name);
+        fillSurname(surname);
+        fillAddress(address);
+        fillStation(station);
+        fillPhone(phone);
     }
     private void fillName(String name) {
         driver.findElement(inputName).sendKeys(name);
@@ -48,6 +45,8 @@ public class OrderPage {
     public void clickButtonNext() {
         driver.findElement(buttonNext).click();
     }
-
 }
+
+
+
 
